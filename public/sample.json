@@ -1,0 +1,66 @@
+{
+  "accessible_wheelchair": true,
+  "address": "5951 N Broadway St",
+  "alcohol": true,
+  "alcohol_bar": true,
+  "alcohol_beer_wine": true,
+  "alcohol_byob": true,
+  "attire": "casual",
+  "category_ids": [
+    366
+  ],
+  "category_labels": [
+    [
+      "Social",
+      "Food and Dining",
+      "Restaurants",
+      "Sushi"
+    ]
+  ],
+  "country": "us",
+  "cuisine": [
+    "Cafe",
+    "Thai",
+    "Sushi",
+    "Asian",
+    "Japanese"
+  ],
+  "email": "indieincindiecafe@gmail.com",
+  "factual_id": "8f4b9dff-d1e2-47d5-b761-1e63928f79ac",
+  "groups_goodfor": true,
+  "hours": "{\"monday\":[[\"15:00\",\"22:00\",\"Dinner\"]],\"tuesday\":[[\"17:00\",\"22:00\",\"Dinner\"]],\"wednesday\":[[\"15:00\",\"22:00\",\"Dinner\"],[\"12:00\",\"15:00\"]],\"thursday\":[[\"15:00\",\"22:00\",\"Dinner\"],[\"12:00\",\"15:00\"]],\"friday\":[[\"15:00\",\"22:30\",\"Dinner\"],[\"12:00\",\"15:00\"]],\"saturday\":[[\"15:00\",\"22:30\",\"Dinner\"],[\"12:00\",\"15:00\"]],\"sunday\":[[\"15:00\",\"22:00\",\"Dinner\"],[\"12:00\",\"15:00\"]]}",
+  "hours_display": "Mon 3:00 PM-10:00 PM; Tue 5:00 PM-10:00 PM; Wed-Thu 12:00 PM-10:00 PM; Fri-Sat 12:00 PM-10:30 PM; Sun 12:00 PM-10:00 PM",
+  "kids_goodfor": true,
+  "latitude": 41.990326,
+  "locality": "Chicago",
+  "longitude": -87.672907,
+  "meal_cater": true,
+  "meal_deliver": true,
+  "meal_dinner": true,
+  "meal_lunch": true,
+  "meal_takeout": true,
+  "name": "Indie Cafe",
+  "neighborhood": [
+    "Edgewater",
+    "Far North Side",
+    "northside",
+    "North Edgewater"
+  ],
+  "open_24hrs": false,
+  "options_healthy": true,
+  "options_vegan": true,
+  "options_vegetarian": true,
+  "parking": true,
+  "parking_street": true,
+  "payment_cashonly": false,
+  "postcode": "60660",
+  "price": 2,
+  "rating": 5,
+  "region": "IL",
+  "reservations": true,
+  "seating_outdoor": true,
+  "smoking": false,
+  "status": "1",
+  "tel": "(773) 561-5577",
+  "website": "http:\/\/www.indiecafe.us"
+}

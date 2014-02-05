@@ -1,0 +1,12 @@
+div class="industries-tabs-wrapper"
+  div class="zone-industries-tabs zone clearfix"
+	div class="industries-tabs-container container-24"
+	  div id="industries-tabs" class="industries-tabs block"
+	    ul class="clearfix"
+		  li class="first active"
+			a href="#" id="American" class="American"
+	      -["Cafe", "Mexican", "Italian", "Pub_Food", "Asian", "Contemporary", "Grill", "Eastern_European", "Ice_Cream", "Middle_Eastern", "Sandwiches", "Salad", "European"].each do |cuisine|
+			  li class=""
+				a href="#" id="#{cuisine}" class="#{cuisine}"
+		  li class="last"
+			a href="#" id="Sushi" class="Sushi"

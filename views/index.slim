@@ -1,0 +1,14 @@
+div id="results"
+  div class="companies-listings block"
+	div class="block-title"
+	  h1 Search Results
+
+    -@results.each do |result|
+	  div class="company-listing clearfix"
+	    a href="#" class="listing-image"
+		  img src="#{result[:pic]}" alt=""
+		div class="listing-body"
+		  div class="listing-rating" = "Rating: #{result[:rating] >= 1 ? result[:rating] : 'Unrated'} Price: #{result[:price] >= 1 ? result[:price].times.collect{'$'}.join('') : 'Unknown'}"
+		  div class="listing-title" = result[:name]
+		  div class="listing-text" = result[:address]
+		a href="#" class="listing-read-more" Read More

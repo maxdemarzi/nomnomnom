@@ -1,0 +1,55 @@
+div class="search-wrapper clearfix"
+  div class="zone-search zone clearfix"
+    div class="search-container container-24"
+      div class="search block"
+		form id="search" class="default-search clearfix"
+    	  select id="type-selector-default" name="type-selector-default" tabindex="1"
+			option value="" - What are you looking for ? -
+			option value="lunch" Lunch
+			option value="dinner" Dinner
+			option value="drinks" Drinks
+
+		  input type="text" id="where" class="text-input-black input-text" placeholder="Where are you looking for it?"
+
+		  input type="submit" class="submit" value="search" name="submit"
+		form id="advanced-search" class="advanced-search search-collapsed clearfix"
+		  div class="clearfix"
+			label Distance:
+			div id="slider-distance" class="slider"
+			div id="distance" class="slider-value"
+		  div class="clearfix"
+			label Rating:
+			div id="slider-rating" class="slider"
+			div id="rating" class="slider-value"
+	      div class="clearfix"
+			label Price:
+			div id="slider-price" class="slider"
+			div id="price" class="slider-value"
+
+		  label Alcohol:
+		  div class="location-fields clearfix"
+		    select id="alcohol-selector-advanced" name="alcohol-advanced" tabindex="1"
+		      option value="" Any
+			  option value="alcohol" Alcohol
+  	  	      option value="bar" Bar
+  	  	      option value="beer_and_wine" Beer and Wine
+  	  	      option value="byob" BYOB
+
+		  label Good For:
+		  div class="location-field clearfix"
+		    select id="good-selector-advanced" name="good-advanced" tabindex="1"
+		      option value="" Any
+			  option value="kids" Kids
+  	  	      option value="groups" Groups
+  	  	      option value="diet" Healthy Choices
+  	  	      option value="vegans" Vegans
+  	  	      option value="vegetarians" Vegetarians
+  	  	      option value="smokers" Smokers
+  	  	      option value="wheelchair" Wheelchairs
+
+ 		  div class="clearfix"
+		  div class="separator"
+		  input type="submit" class="submit" value="search" name="submit"
+
+		div class="advanced-search-control"
+		  a href="#" id="advanced-search-button" class="advanced-search-button" Advanced Search
