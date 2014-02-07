@@ -12,22 +12,18 @@ class App < Sinatra::Base
   set :slim, :pretty => true
 
   post '/search' do
-    latitude = params["latitude"] || 41.8819
-    longitude = params["longitude"] || -87.6278
-    distance = params["distance"] || 10.0
+    puts params.inspect
+    latitude = params[:latitude] || 41.8819
+    longitude = params[:longitude] || -87.6278
+    distance = params[:distance] || 10.0
     cypher = "start n = node:restaurants({location}) return n limit 25"
     location = {:location => "withinDistance:[#{latitude},#{longitude},#{distance}]"}
-    puts location
     restaurants = $neo.execute_query(cypher, location)["data"]
     @results = []
     restaurants.each do |r|        
       restaurant = r[0]["data"]
-      puts "#{restaurant["cuisine"].first} =>  #{pic(restaurant["cuisine"])}"
-      
-      @results << { :pic => pic(restaurant["cuisine"]), :cuisine => restaurant["cuisine"], :name => restaurant["name"], :address => restaurant["address"], :rating => (restaurant["rating"] || -1), :price => (restaurant["price"] || -1) }
+      @results << { :pic => pic(restaurant["cuisine"]), :cuisine => Array(restaurant["cuisine"]).join(", "), :name => restaurant["name"], :address => restaurant["address"], :rating => (restaurant["rating"] || -1), :price => (restaurant["price"] || -1) }
     end
-    puts params.inspect
-    puts @results.inspect
     slim :index, :layout => false
   end
 
@@ -58,7 +54,7 @@ class App < Sinatra::Base
   end
 
   helpers do
-    def pic(cuisines)
+    def pic(cuisines)      
       translation = {
         "Deli" => "sandwich",
         "Indian" => "tomato_soup",
@@ -93,10 +89,10 @@ class App < Sinatra::Base
         "Tex Mex" => "omlette", 
         "Pan Asian" => "sugar",
         "Chinese" => "roasted_duck", 
-        "Coffee" => "expresso", 
+        "Coffee" => "cappucino", 
         "Tea" => "tea_bag", 
         "Steak" => "beef", 
-        "Bistro" => "", 
+        "Bistro" => "sandwich", 
         "Polish" => "sausage", 
         "Traditional" => "roasted_turkey", 
         "Southwestern" => "red_bell_pepper", 
@@ -105,9 +101,14 @@ class App < Sinatra::Base
         "Israeli" => "oat_meal", 
         "Lebanese" => "kebab", 
         "Mediterranean" => "grapes", 
-        "Eclectic" => "cocktail"
+        "Eclectic" => "cocktail",
+        "Donuts" => "cappucino"
         }
-        "/images/food/bigger/#{translation[cuisines.first]}_128.png"
+        
+        picture = translation[cuisines.nil? ? "Bistro" : cuisines.first]
+        picture ||= "sandwich"
+
+        "/images/food/bigger/#{picture}_128.png"
     end
 
   end

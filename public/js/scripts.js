@@ -72,7 +72,7 @@ jQuery(document).ready(function(){
 	/* Calling slider() function and setting slider options. */
 	jQuery('#slider-rating').slider({
 		range: 'min',
-		value: 3,
+		value: 1,
 		min: 1,
 		max: 5,
 		slide: function( event, ui ) {
@@ -85,7 +85,7 @@ jQuery(document).ready(function(){
 	/* Calling slider() function and setting slider options. */
 	jQuery('#slider-price').slider({
 		range: 'min',
-		value: 2,
+		value: 1,
 		min: 1,
 		max: 4,
 		slide: function( event, ui ) {

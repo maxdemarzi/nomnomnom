@@ -11,4 +11,4 @@ div id="results"
 		  div class="listing-rating" = "Rating: #{result[:rating] >= 1 ? result[:rating] : 'Unrated'} Price: #{result[:price] >= 1 ? result[:price].times.collect{'$'}.join('') : 'Unknown'}"
 		  div class="listing-title" = result[:name]
 		  div class="listing-text" = result[:address]
-		a href="#" class="listing-read-more" Read More
+          div class="listing-text" = result[:cuisine]

@@ -4,10 +4,10 @@ See live example at  [nomnomnom.us](http://nomnomnom.us).
 
 # Instructions
 
-## Pre-Requisites
-
+You will need to get a Factual.com Key and Secret.
 [Factual](http://factual.com) Credentials
-Ruby 1.9.3+
+
+Data is limited to a sample of US Restaurants.
 
 ## Installation
 
@@ -20,6 +20,6 @@ rake neo4j:get_opentable
 rake neo4j:combine
 rake neo4j:import
 rackup
-
-Now take a look at your website on localhost:9292
 ````
+
+Now take a look at your website on [localhost:9292](localhost:9292)
