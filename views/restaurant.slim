@@ -1,0 +1,35 @@
+h2
+  = @restaurant["name"]
+
+a href= @restaurant["reserve_url"] class='text-colorful' Make a reservation on Open Table
+
+p = @restaurant["cuisine"].join(", ")
+
+div class="company-details block"
+  div class="company-address"
+	div class="details-title" Address Details:
+	div class="detail address" ="#{@restaurant["address"]}  #{@restaurant["region"]} #{@restaurant["postcode"]}"
+	div class="detail phone" ="Phone: #{@restaurant["tel"]}"
+	div class="detail email" 
+	  | E-mail: 
+	  a href='mailto:#{@restaurant["email"]}' class='text-colorful' = @restaurant["email"]
+	  br
+	  | Website: 
+	  a href=@restaurant["website"] class='text-colorful'
+	    = @restaurant["website"]
+  div class="company-hours"
+	div class="details-title" Opening Hours:
+	- @restaurant["hours_display"].split(";").each do |hour|
+  	  div class="detail" 
+		span class="detail-label" =hour 
+  div class="clearfix"
+  div class="details"
+    div class="details-title" Options:
+    div class="detail" 
+      = @options.join(", ")
+    br
+
+  div class="clearfix"
+  div class="details-title" Map:
+  div class="company-map"
+    iframe src="https://maps.google.com/maps?q=#{@restaurant["latitude"]},#{@restaurant["longitude"]}&num=1&ie=UTF8&t=m&ll=#{@restaurant["latitude"]},#{@restaurant["longitude"]}&spn=0.054727,0.20977&z=15&output=embed"

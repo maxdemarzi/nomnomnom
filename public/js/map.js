@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 		maptype: 'ROADMAP',
         latitude: latitude, 
         longitude: longitude,
-        zoom: 13,
+        zoom: 15,
         scaleControl: true,
         scrollwheel: false,
 		markers: [

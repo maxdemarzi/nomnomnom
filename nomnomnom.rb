@@ -12,7 +12,6 @@ class App < Sinatra::Base
   set :slim, :pretty => true
 
   post '/search' do
-    puts params.inspect
     latitude = params[:latitude] || 41.8819
     longitude = params[:longitude] || -87.6278
     distance = params[:distance] || 10.0
@@ -22,7 +21,17 @@ class App < Sinatra::Base
     @results = []
     restaurants.each do |r|        
       restaurant = r[0]["data"]
-      @results << { :pic => pic(restaurant["cuisine"]), :cuisine => Array(restaurant["cuisine"]).join(", "), :name => restaurant["name"], :address => restaurant["address"], :rating => (restaurant["rating"] || -1), :price => (restaurant["price"] || -1) }
+      node_id = r[0]["self"].split("/").last
+      @results << { :pic => "/images/food/bigger/#{pick(restaurant["cuisine"])}_128.png", 
+                    :cuisine => Array(restaurant["cuisine"]).join(", "), 
+                    :name => restaurant["name"], 
+                    :address => restaurant["address"], 
+                    :rating => (restaurant["rating"] || -1), 
+                    :price => (restaurant["price"] || -1),
+                    :latitude => restaurant["latitude"],
+                    :longitude => restaurant["longitude"],
+                    :group => pick(restaurant["cuisine"]),
+                    :node_id => node_id }
     end
     slim :index, :layout => false
   end
@@ -53,8 +62,28 @@ class App < Sinatra::Base
     slim :food_genius, :layout => :nomap
   end
 
+
+  get '/restaurant' do
+    @active= ["empty neighbour-left", "first active", "neighbour-right","","","","","last","empty"]
+    cypher = "start n = node({id}) return n"
+    id = {:id => params[:id].to_i }
+    @restaurant = $neo.execute_query(cypher, id)["data"][0][0]["data"]
+    @options = []
+    @options << "Vegetarian" if @restaurant["options_vegetarian"]
+    @options << "Wheelchair Accessible" if @restaurant["accessible_wheelchair"]
+    @options << "Healhty Options" if @restaurant["options_healthy"]
+    @options << "Private Rooms" if @restaurant["room_private"]
+    @options << "Good for Kids" if @restaurant["kids_goodfor"]
+    @options << "Outdoor Seating" if @restaurant["seating_outdoor"]
+    @options << "Good for Groups" if @restaurant["groups_goodfor"]
+    @options << "Serves Alcohol" if @restaurant["alcohol"]
+    
+    slim :restaurant, :layout => :nomap
+  end
+
+
   helpers do
-    def pic(cuisines)      
+    def pick(cuisines)      
       translation = {
         "Deli" => "sandwich",
         "Indian" => "tomato_soup",
@@ -103,12 +132,10 @@ class App < Sinatra::Base
         "Mediterranean" => "grapes", 
         "Eclectic" => "cocktail",
         "Donuts" => "cappucino"
-        }
-        
+        }        
         picture = translation[cuisines.nil? ? "Bistro" : cuisines.first]
         picture ||= "sandwich"
-
-        "/images/food/bigger/#{picture}_128.png"
+        picture
     end
 
   end

@@ -12,3 +12,8 @@ div id="results"
 		  div class="listing-title" = result[:name]
 		  div class="listing-text" = result[:address]
           div class="listing-text" = result[:cuisine]
+	  javascript:
+	    $.goMap.createMarker({latitude: "#{result[:latitude]}", longitude: "#{result[:longitude]}", group: "#{result[:group]}", icon: "/images/marker-#{result[:group]}.png", html: {
+				content: "<a href='restaurant?id=#{result[:node_id]}'>#{result[:name]}</a>"
+			}})
+   

@@ -1486,162 +1486,150 @@ ul.ui-autocomplete {
 			height: 100%;
 		}
 
-			.industries-tabs ul li a.American {
+			.industries-tabs ul li a.hamburger {
 				background: url(/images/food/bw/hamburger_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.American,
-			.industries-tabs ul li a.American:hover {
+			.industries-tabs ul li.active a.hamburger,
+			.industries-tabs ul li a.hamburger:hover {
 				background: url(/images/food/color/hamburger_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Cafe {
+			.industries-tabs ul li a.cappucino {
 				background: url(/images/food/bw/cappucino_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Cafe,
-			.industries-tabs ul li a.Cafe:hover {
+			.industries-tabs ul li.active a.cappucino,
+			.industries-tabs ul li a.cappucino:hover {
 				background: url(/images/food/color/cappucino_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Mexican {
+			.industries-tabs ul li a.omlette {
 				background: url(/images/food/bw/omlette_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Mexican,
-			.industries-tabs ul li a.Mexican:hover {
+			.industries-tabs ul li.active a.omlette,
+			.industries-tabs ul li a.omlette:hover {
 				background: url(/images/food/color/omlette_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Italian {
+			.industries-tabs ul li a.pizza {
 				background: url(/images/food/bw/pizza_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Italian,
-			.industries-tabs ul li a.Italian:hover {
+			.industries-tabs ul li.active a.pizza,
+			.industries-tabs ul li a.pizza:hover {
 				background: url(/images/food/color/pizza_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Pub_Food {
+			.industries-tabs ul li a.hot_dog {
 				background: url(/images/food/bw/hot_dog_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Pub_Food,
-			.industries-tabs ul li a.Pub_Food:hover {
+			.industries-tabs ul li.active a.hot_dog,
+			.industries-tabs ul li a.hot_dog:hover {
 				background: url(/images/food/color/hot_dog_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Asian {
+			.industries-tabs ul li a.sugar {
 				background: url(/images/food/bw/sugar_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Asian,
-			.industries-tabs ul li a.Asian:hover {
+			.industries-tabs ul li.active a.sugar,
+			.industries-tabs ul li a.sugar:hover {
 				background: url(/images/food/color/sugar_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Contemporary {
+			.industries-tabs ul li a.grilled_fish {
 				background: url(/images/food/bw/grilled_fish_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Contemporary,
-			.industries-tabs ul li a.Contemporary:hover {
+			.industries-tabs ul li.active a.grilled_fish,
+			.industries-tabs ul li a.grilled_fish:hover {
 				background: url(/images/food/color/grilled_fish_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Grill {
+			.industries-tabs ul li a.beef {
 				background: url(/images/food/bw/beef_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Grill,
-			.industries-tabs ul li a.Grill:hover {
+			.industries-tabs ul li.active a.beef,
+			.industries-tabs ul li a.beef:hover {
 				background: url(/images/food/color/beef_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Eastern_European {
+			.industries-tabs ul li a.brioche {
 				background: url(/images/food/bw/brioche_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Eastern_European,
-			.industries-tabs ul li a.Eastern_European:hover {
+			.industries-tabs ul li.active a.brioche,
+			.industries-tabs ul li a.brioche:hover {
 				background: url(/images/food/color/brioche_48.png) no-repeat center center;
 			}
 	
-
-			.industries-tabs ul li a.Ice_Cream {
+			.industries-tabs ul li a.ice_cream {
 				background: url(/images/food/bw/ice_cream_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Ice_Cream,
-			.industries-tabs ul li a.Ice_Cream:hover {
+			.industries-tabs ul li.active a.ice_cream,
+			.industries-tabs ul li a.ice_cream:hover {
 				background: url(/images/food/color/ice_cream_48.png) no-repeat center center;
 			}
-	
-
-			.industries-tabs ul li a.Japanese {
-				background: url(/images/food/bw/baked_salmon_48.png) no-repeat center center;
-			}
-
-			.industries-tabs ul li.active a.Japanese,
-			.industries-tabs ul li a.Japanese:hover {
-				background: url(/images/food/color/baked_salmon_48.png) no-repeat center center;
-			}
-	
-
-			.industries-tabs ul li a.Middle_Eastern {
+		
+			.industries-tabs ul li a.kebab {
 				background: url(/images/food/bw/kebab_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Middle_Eastern,
-			.industries-tabs ul li a.Middle_Eastern:hover {
+			.industries-tabs ul li.active a.kebab,
+			.industries-tabs ul li a.kebab:hover {
 				background: url(/images/food/color/kebab_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Sandwiches {
+			.industries-tabs ul li a.sandwich {
 				background: url(/images/food/bw/sandwich_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Sandwiches,
-			.industries-tabs ul li a.Sandwiches:hover {
+			.industries-tabs ul li.active a.sandwich,
+			.industries-tabs ul li a.sandwich:hover {
 				background: url(/images/food/color/sandwich_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Salad {
+			.industries-tabs ul li a.salad {
 				background: url(/images/food/bw/salad_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Salad,
-			.industries-tabs ul li a.Salad:hover {
+			.industries-tabs ul li.active a.salad,
+			.industries-tabs ul li a.salad:hover {
 				background: url(/images/food/color/salad_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.European {
+			.industries-tabs ul li a.croissant {
 				background: url(/images/food/bw/croissant_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.European,
-			.industries-tabs ul li a.European:hover {
+			.industries-tabs ul li.active a.croissant,
+			.industries-tabs ul li a.croissant:hover {
 				background: url(/images/food/color/croissant_48.png) no-repeat center center;
 			}
 	
 
-			.industries-tabs ul li a.Sushi {
+			.industries-tabs ul li a.baked_salmon {
 				background: url(/images/food/bw/baked_salmon_48.png) no-repeat center center;
 			}
 
-			.industries-tabs ul li.active a.Sushi,
-			.industries-tabs ul li a.Sushi:hover {
+			.industries-tabs ul li.active a.baked_salmon,
+			.industries-tabs ul li a.baked_salmon:hover {
 				background: url(/images/food/color/baked_salmon_48.png) no-repeat center center;
 			}
 
