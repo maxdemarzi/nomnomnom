@@ -15,8 +15,56 @@ class App < Sinatra::Base
     latitude = params[:latitude] || 41.8819
     longitude = params[:longitude] || -87.6278
     distance = params[:distance] || 10.0
-    cypher = "start n = node:restaurants({location}) return n limit 25"
-    location = {:location => "withinDistance:[#{latitude},#{longitude},#{distance}]"}
+    what = case params[:what]
+             when "lunch"
+               " AND n.meal_lunch = true "
+             when "dinner"
+               " AND n.meal_dinner = true "            
+             when "drinks"
+               " AND n.alcohol_bar = true "            
+             else
+               " "
+             end
+    good = case params[:good]
+            when "kids"
+              " AND n.kids_goodfor = true "
+            when "groups"
+              " AND n.groups_goodfor = true "
+            when "diet"
+              " AND n.options_healthy = true "
+            when "vegans"
+              " AND n.options_vegan = true "
+            when "vegetarians"
+              " AND n.options_vegetarian = true "
+            when "smokers"
+              " AND n.smoking = true"
+            when "wheelchair"
+              " AND n.accessible_wheelchair = true"
+            else
+              " "      
+            end
+    alcohol = case params[:alcohol]
+                when "alcohol"
+                  " AND n.alcohol = true "
+                when "bar"  
+                  " AND n.alcohol_bar = true "                  
+                when "beer_and_wine"
+                  " AND n.alcohol_beer_wine = true "
+                when "byob"
+                  " AND n.alcohol_byob = true "
+                else
+                  " "
+                end
+    price = params[:price] || 5
+    rating = params[:rating] || 0
+    cypher = "START n = node:restaurants({location}) 
+              WHERE n.price <= {price} 
+                AND n.rating >= {rating}
+                #{what}
+                #{good}
+                #{alcohol}
+              RETURN n LIMIT 25"
+    location = {:location => "withinDistance:[#{latitude},#{longitude},#{distance}]", :price => price.to_i, :rating => rating.to_i}
     restaurants = $neo.execute_query(cypher, location)["data"]
     @results = []
     restaurants.each do |r|        
@@ -70,6 +118,7 @@ class App < Sinatra::Base
     @restaurant = $neo.execute_query(cypher, id)["data"][0][0]["data"]
     @options = []
     @options << "Vegetarian" if @restaurant["options_vegetarian"]
+    @options << "Vegan" if @restaurant["options_vegan"]
     @options << "Wheelchair Accessible" if @restaurant["accessible_wheelchair"]
     @options << "Healhty Options" if @restaurant["options_healthy"]
     @options << "Private Rooms" if @restaurant["room_private"]

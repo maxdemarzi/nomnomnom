@@ -7,6 +7,19 @@ jQuery(document).ready(function(){
           //this happens if form is submitted
           //prevent the default behavior of a form (it should do nothing in our case)
           ev.preventDefault();
+          $.goMap.clearMarkers();
+
+		if ( jQuery('#hide-map-button').hasClass('map-collapsed') ) {
+			jQuery('#map').animate({ height: '620px' });
+			jQuery('#hide-map-button').text('Hide Map').removeClass('map-collapsed').addClass('map-expanded');
+		}
+		if (jQuery('#advanced-search-button').text() === 'Simple Search') {
+			jQuery('#default-search').slideToggle('fast');
+			jQuery('#advanced-search').slideToggle('fast');
+			jQuery('#advanced-search-button').text('Advanced Search');
+			jQuery('#advanced-search-button').removeClass('expanded');
+		}
+
 
           //Get our form data
 		  address = document.getElementById('where').value;
@@ -17,16 +30,19 @@ jQuery(document).ready(function(){
 				  longitude = parseFloat(results[0].geometry.location.e);
 				
   				  $.goMap.setMap({latitude: latitude, longitude: longitude});
-				
-      	          distance = document.getElementById("distance").innerHTML.replace(" km", ".0");
-				
+
 				  //send an ajax request to our action
 		          $.ajax({
 			        type: "POST",
 		            url: "/search",
-		            //serialize the form and use it as data for our ajax request
-		            //data: $(this).serialize(),
-		            data: "what="+$("#search option:selected").val() + "&latitude=" + latitude + "&longitude=" + longitude + '&distance=' + document.getElementById("distance").innerHTML.replace(" km", ".0"),
+		            data: "what="+$("#search option:selected").val() + 
+		                  "&latitude=" + latitude + 
+		                  "&longitude=" + longitude + 
+		                  "&distance=" + document.getElementById("distance").innerHTML.replace(" km", ".0") +
+		                  "&price=" + document.getElementById("price").innerHTML.replace("&lt; ", "").length +
+		                  "&rating=" + document.getElementById("rating").innerHTML.replace("&gt;= ", "") +
+		                  "&alcohol=" + $("#alcohol-selector-advanced").val() +
+		                  "&good=" +  $("#good-selector-advanced").val(),
 		            //the type of data we are expecting back from server, could be json too
 		            dataType: "html",
 		            success: function(data) {
@@ -34,13 +50,29 @@ jQuery(document).ready(function(){
 		              $('#restaurants').html(data);
 		            }
 		          });
-				
+								
 		 	    }
 			  });
-			}	
+			} else {	
 
-
-
+				  //send an ajax request to our action
+		          $.ajax({
+			        type: "POST",
+		            url: "/search",
+		            data: "what="+$("#search option:selected").val() + 
+		                  "&latitude=" + latitude + 
+		                  "&longitude=" + longitude + 
+		                  "&distance=" + document.getElementById("distance").innerHTML.replace(" km", ".0") +
+		                  "&price=" + document.getElementById("price").innerHTML.replace("&lt; ", "").length +
+		                  "&rating=" + document.getElementById("rating").innerHTML.replace("&gt;= ", "") +
+		                  "&alcohol=" + $("#alcohol-selector-advanced").val() +
+		                  "&good=" +  $("#good-selector-advanced").val(),
+		            dataType: "html",
+		            success: function(data) {
+		              $('#restaurants').html(data);
+		            }
+		          });
+               }
 
         });
 

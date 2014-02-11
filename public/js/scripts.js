@@ -80,7 +80,7 @@ jQuery(document).ready(function(){
 		}
 	});
 	/* Showing the default value on the page load. */
-	jQuery('#rating').text( '> ' + jQuery('#slider-rating').slider('value') );
+	jQuery('#rating').text( '>= ' + jQuery('#slider-rating').slider('value') );
 
 	/* Calling slider() function and setting slider options. */
 	jQuery('#slider-price').slider({
@@ -145,6 +145,7 @@ jQuery(document).ready(function(){
 			jQuery(this).text('Advanced Search');
 			jQuery(this).removeClass('expanded');
 		}
+		
 	});
 
 	jQuery('#hide-map-button').click(function(event) {

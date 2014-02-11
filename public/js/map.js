@@ -11,8 +11,7 @@ jQuery(document).ready(function(){
         zoom: 15,
         scaleControl: true,
         scrollwheel: false,
-		markers: [
-		]
+		markers: []
 	});
 						            
 	var locations=new Array({ coords: {
