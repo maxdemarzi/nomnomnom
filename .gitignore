@@ -2,4 +2,5 @@
 neo4j
 neo4j-spatial.zip
 template
+*.json
 
