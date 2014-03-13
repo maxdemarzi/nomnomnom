@@ -26,8 +26,8 @@ jQuery(document).ready(function(){
 		  if (address != '') { 
 			  geocoder.geocode( { 'address': address}, function(results, status) {
 			    if (status == google.maps.GeocoderStatus.OK) {
-				  latitude = parseFloat(results[0].geometry.location.d);
-				  longitude = parseFloat(results[0].geometry.location.e);
+				  latitude = parseFloat(results[0].geometry.location.k);
+				  longitude = parseFloat(results[0].geometry.location.A);
 				
   				  $.goMap.setMap({latitude: latitude, longitude: longitude});
 
